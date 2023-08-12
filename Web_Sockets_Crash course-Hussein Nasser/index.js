@@ -12,7 +12,7 @@ const websocket=new WebSocketServer({"httpServer":httpserver});//handshake part
 
 websocket.on("request",request=>{
 
-    connection=request.accept(null,request.origin);
+    connection=request.accept(null,request.origin);//this request is a socket connection i think
 
     connection.on("open",()=>{console.log("Open !")});
 
@@ -27,4 +27,3 @@ websocket.on("request",request=>{
 httpserver.listen(8081,()=>{
     console.log("My server is listening on port 8081")
 })
-
