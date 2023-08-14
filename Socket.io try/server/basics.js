@@ -12,6 +12,8 @@ io.on("connection",(socket)=>{console.log(socket.id);
        socket.emit("messageFromServer",{data:"welcome to my server"});
        socket.on("messageFromClient",(data)=>{console.log(data)})});
 
+       
+
 
 
 

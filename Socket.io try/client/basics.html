@@ -20,10 +20,15 @@
         const socket=io("http://localhost:8000");
         console.log(socket);
 
+        //Accidently did good code here so for bad code you need to put messageFromServer event inside connect event handler
         socket.on("connect",()=>{console.log(socket.id );});
         socket.on("messageFromServer",(data)=>{console.log(data);});
-
-        socket.emit("messageFromClient",{data:"hi am client"})
+        socket.emit("messageFromClient",{data:"hi am client"});//this emit code should be inside connect event as well
+        
+        socket.io.on("reconnect",(data)=>{
+            console.log("reconnect event");
+            console.log(data);
+        })
     </script>
 </body>
 </html>
